@@ -1,19 +1,15 @@
 return {
-  {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false, -- As per Wiki: "This plugin does not support lazy-loading"
-    build = ':TSUpdate',
-    config = function()
-      -- 1. Run basic setup
-      require('nvim-treesitter').setup({
-        -- Only add things here that are actually supported now
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-
-      -- 2. If you want specific languages always present:
-      -- This is the new way to ensure parsers are there without 'ensure_installed'
-      require('nvim-treesitter').install({ 'lua', 'vim', 'python','c','javascript'})
-    end
-  }
+  'nvim-treesitter/nvim-treesitter',
+  -- This line forces the older, stable version that won't break your config
+  branch = 'master', 
+  lazy = false,
+  build = ':TSUpdate',
+  config = function()
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
+      ensure_installed = { 'python', 'c', 'lua', 'javascript', 'cpp', 'bash' },
+      highlight = { enable = true },
+      indent = { enable = true },
+    })
+  end,
 }
