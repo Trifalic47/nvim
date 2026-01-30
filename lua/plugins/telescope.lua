@@ -1,30 +1,48 @@
+--[[
+
 return {
   { "nvim-telescope/telescope-ui-select.nvim" },
   {
     "nvim-telescope/telescope.nvim",
-    -- Using 'master' instead of a specific tag fixes the ft_to_lang error
-    branch = '0.1.x', 
+    -- Change 'tag' to 'branch' to fix the ft_to_lang error
+    branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      local telescope = require("telescope")
-      telescope.setup({
-        defaults = {
-          -- This is a fallback to prevent the error if treesitter is still acting up
-          preview = { treesitter = false } 
-        },
+      require("telescope").setup({
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
           },
         },
       })
-      
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-p>", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
-
-      telescope.load_extension("ui-select")
+      require("telescope").load_extension("ui-select")
     end,
   },
+}
+-]]
+return {
+	{ "nvim-telescope/telescope-ui-select.nvim" },
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = '0.1.x', -- Change this from tag = "0.1.5"
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("telescope").setup({
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					},
+				},
+			})
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+			vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
+			require("telescope").load_extension("ui-select")
+		end,
+	},
 }

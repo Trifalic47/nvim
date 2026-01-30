@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  -- This line forces the older, stable version that won't break your config
+  -- Add this line to use the stable branch
   branch = 'master', 
   lazy = false,
   build = ':TSUpdate',
