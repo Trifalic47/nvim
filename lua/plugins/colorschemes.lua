@@ -1,42 +1,13 @@
---[[
 return {
-	{
-		"vague2k/vague.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("vague").setup({
-				transparent = true, -- This makes it inherit your terminal's black background
-				style = {
-					boolean = "bold",
-					number = "none",
-					float = "none",
-					error = "none",
-					comments = "italic", -- Prime's setup is usually clean, but you can toggle this
-					conditionals = "none",
-					functions = "none",
-					headings = "bold",
-					operators = "none",
-					strings = "none",
-					variables = "none",
-					keywords = "none",
-				},
-			})
-			vim.cmd.colorscheme("vague")
-		end,
-	},
-}
---]]
+	'projekt0n/github-nvim-theme',
+	name = 'github-theme',
+	lazy = false,   -- make sure we load this during startup if it is your main colorscheme
+	priority = 1000, -- make sure to load this before all the other start plugins
+	config = function()
+		require('github-theme').setup({
+			-- ...
+		})
 
-return {
-	{
-		"catppuccin/nvim",
-		lazy = false,
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme "catppuccin-mocha"
-		end
-	}
+		vim.cmd('colorscheme github_dark_default')
+	end,
 }
-
