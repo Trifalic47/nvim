@@ -1,31 +1,18 @@
 return {
 	{
-		"vague2k/vague.nvim",
-		name = "vague",
+		"neanias/everforest-nvim",
+		name = "everforest",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("vague").setup({
-				transparent = false,
-				style = {
-					-- No italics — cleaner for long sessions
-					booleans      = "none",
-					comments      = "none",
-					keywords      = "none",
-					strings       = "none",
-					functions     = "none",
-					variables     = "none",
-					operators     = "none",
-					types         = "none",
-					number        = "none",
-				},
-				-- Override specific colors for even more contrast if needed
-				colors = {},
+			require("everforest").setup({
+				background = "hard",      -- "soft" | "medium" | "hard"
+				transparent_background_level = 0,
+				italics = false,          -- no italics for long sessions
+				disable_italic_comments = true,
 			})
-			vim.cmd.colorscheme("vague")
-
-			-- Keep ColorColumn subtle
-			vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#161616" })
+			vim.cmd.colorscheme("everforest")
 		end,
 	},
 }
+
