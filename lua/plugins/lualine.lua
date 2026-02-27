@@ -6,54 +6,20 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme                = "auto",
+					theme                = "palenight", -- subtle dark theme
 					component_separators = { left = "", right = "" },
 					section_separators   = { left = "", right = "" },
-					globalstatus         = true,   -- single statusline across all splits
+					icons_enabled        = false,
+					globalstatus         = true,
 					refresh              = { statusline = 200 },
 				},
 				sections = {
-					lualine_a = {
-						{
-							"mode",
-							fmt = function(str) return " " .. str:sub(1, 1) end, -- single letter + icon
-						},
-					},
-					lualine_b = {
-						{ "branch", icon = "" },
-						{
-							"diff",
-							symbols = { added = " ", modified = " ", removed = " " },
-							colored = true,
-						},
-					},
-					lualine_c = {
-						{
-							"filename",
-							path = 1,              -- show relative path
-							symbols = {
-								modified = "  ",
-								readonly = "  ",
-								unnamed  = "  No Name",
-							},
-						},
-					},
-					lualine_x = {
-						{
-							"diagnostics",
-							sources  = { "nvim_lsp" },
-							symbols  = { error = " ", warn = " ", info = " ", hint = " " },
-							colored  = true,
-							update_in_insert = false,
-						},
-						{ "filetype", icon_only = false },
-					},
-					lualine_y = {
-						{ "progress" },
-					},
-					lualine_z = {
-						{ "location" },   -- line:col
-					},
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
+					lualine_c = { { "filename", path = 1 } },
+					lualine_x = { "diagnostics", "filetype" },
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
 				},
 				inactive_sections = {
 					lualine_c = { { "filename", path = 1 } },

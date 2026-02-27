@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 
 -- ── Core Options ──────────────────────────────────────────────────────────────
 vim.opt.termguicolors = true
+vim.opt.title = true
 
 -- Line numbers
 vim.opt.number = true
@@ -41,9 +42,8 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
--- Column guide at 125 chars (subtle)
-vim.opt.colorcolumn = "125"
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#161616" })
+-- Column guide at 80 chars
+vim.opt.colorcolumn = "80"
 
 -- Remove netrw banner clutter
 vim.g.netrw_banner = 0

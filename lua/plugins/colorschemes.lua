@@ -1,9 +1,32 @@
 function ColorMyPencils(color)
-	color = color or "rose-pine-moon"
+	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#5a5289", bg = "none" })
+	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+	vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+
+	-- Subtle ColorColumn at 80
+	vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#1f1d2e" })
+
+	-- Global Bold Removal
+	local groups = {
+		"@function", "@method", "@keyword", "@variable", "@type", "@constant",
+		"@string", "@comment", "@operator", "@parameter", "@field", "@property"
+	}
+	for _, group in ipairs(groups) do
+		local hl = vim.api.nvim_get_hl(0, { name = group })
+		hl.bold = false
+		vim.api.nvim_set_hl(0, group, hl)
+	end
 end
 
 return {
@@ -51,9 +74,8 @@ return {
 							out:write(new_theme .. "\n")
 							out:close()
 						end
-						-- Re-apply transparency after colorscheme change
-						vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-						vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+						-- Re-apply all Primeagen overrides
+						ColorMyPencils(new_theme)
 					end
 				end,
 			})
@@ -94,9 +116,29 @@ return {
 		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
+				variant = "main", 
+				dark_variant = "main",
 				disable_background = true,
+				disable_float_background = true,
+				disable_italics = true,
+
+				highlight_groups = {
+					ColorColumn = { bg = 'rose', blend = 10 },
+					CursorLine = { bg = 'foam', blend = 10 },
+					StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+					Search = { bg = 'gold', fg = 'base' },
+					TelescopeBorder = { fg = "highlight_high", bg = "none" },
+					TelescopeNormal = { bg = "none" },
+					TelescopePromptNormal = { bg = "none" },
+					TelescopeResultsNormal = { bg = "none" },
+					TelescopeSelection = { bg = "highlight_med" },
+					TelescopeSelectionCaret = { fg = "love" },
+				},
+
 				styles = {
+					bold = true,
 					italic = false,
+					transparency = true,
 				},
 			})
 		end,
