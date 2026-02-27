@@ -7,25 +7,7 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		-- Everforest-matched highlights
-		vim.api.nvim_set_hl(0, "NeoTreeNormal",        { bg = "#272e33", fg = "#d3c6aa" })
-		vim.api.nvim_set_hl(0, "NeoTreeNormalNC",      { bg = "#272e33", fg = "#d3c6aa" })
-		vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer",   { bg = "#272e33", fg = "#272e33" })
-		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator",  { fg = "#272e33", bg = "#272e33" })
-		vim.api.nvim_set_hl(0, "NeoTreeRootName",      { fg = "#a7c080", bold = true })
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#7fbbb3" })
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#7fbbb3" })
-		vim.api.nvim_set_hl(0, "NeoTreeFileName",      { fg = "#d3c6aa" })
-		vim.api.nvim_set_hl(0, "NeoTreeFileIcon",      { fg = "#a7c080" })
-		vim.api.nvim_set_hl(0, "NeoTreeCursorLine",    { bg = "#3a464c" })
-		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker",  { fg = "#3d4a4f" })
-		vim.api.nvim_set_hl(0, "NeoTreeExpander",      { fg = "#7fbbb3" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitAdded",      { fg = "#a7c080" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitModified",   { fg = "#dbbc7f" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitDeleted",    { fg = "#e67e80" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitUntracked",  { fg = "#d699b6" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitIgnored",    { fg = "#4a555b" })
-		vim.api.nvim_set_hl(0, "NeoTreeGitConflict",   { fg = "#e69875", bold = true })
+		-- Rely on Tokyonight's excellent native Neo-tree highlights
 
 		require("neo-tree").setup({
 			close_if_last_window    = true,
