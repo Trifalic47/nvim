@@ -20,9 +20,16 @@ map("n", "J", "mzJ`z")
 -- Move selected lines up/down in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "<A-j>", ":m '>+1<CR>gv=gv")
+map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- Paste without losing register contents
+map("x", "p", [["_dP]])
 map("x", "<leader>p", [["_dP]])
+
+-- Visual mode indenting
+map("v", "<Tab>", ">gv")
+map("v", "<S-Tab>", "<gv")
 
 -- Yank to system clipboard
 map({ "n", "v" }, "<leader>y", [["+y]])

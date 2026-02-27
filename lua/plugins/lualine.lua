@@ -7,7 +7,7 @@ return {
 			require("lualine").setup({
 				options = {
 					theme                = "auto",
-					component_separators = { left = "│", right = "│" },
+					component_separators = { left = "", right = "" },
 					section_separators   = { left = "", right = "" },
 					globalstatus         = true,   -- single statusline across all splits
 					refresh              = { statusline = 200 },
