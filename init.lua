@@ -2,6 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 -- ── Core Options ──────────────────────────────────────────────────────────────
 vim.opt.termguicolors = true
 vim.opt.title = true
@@ -43,7 +44,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Column guide at 80 chars
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 -- Remove netrw banner clutter
 vim.g.netrw_banner = 0
