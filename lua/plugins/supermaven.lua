@@ -19,5 +19,8 @@ return {
         return false -- condition to disable supermaven, false means it's always on
       end,
     })
+
+    -- Toggle Supermaven on/off with <leader>st
+    vim.keymap.set("n", "<leader>st", "<cmd>SupermavenToggle<cr>", { desc = "Toggle Supermaven" })
   end,
 }
