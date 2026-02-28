@@ -1,7 +1,7 @@
 -- Leader key (must be before lazy.nvim)
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- ── Core Options ──────────────────────────────────────────────────────────────
 vim.opt.termguicolors = true
